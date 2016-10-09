@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Table Operations</title>
+    <style type="text/css">
+      table, td, th {
+        border: 1px solid black;
+      }
+    </style>
+    <script type="text/javascript">
+      function AddRowToTable() {
+        var table = document.getElementById("getTableData");
+        var rowLength = table.rows.length;
+        var row = table.insertRow(rowLength);
+        //alert(row);
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        cell1.innerHTML = "CELL- X";
+        cell2.innerHTML = "CELL- Y";
+      }
+      function EditTableCell() {
+        var RowNumber = prompt("Please row number to be edit");
+        //alert(UserRespons);
+        if(RowNumber) {;
+          var ColunmNumber = prompt("Please Column number for row" +' '+RowNumber +' '+ "to be edit");
+          if(ColunmNumber) {
+            /*var CellInfo = document.getElementById("getTableData").rows[0].cells[0].innerHTML;
+            alert(CellInfo);*/
+            var CellData = document.getElementById("getTableData").rows[RowNumber].cells[ColunmNumber].innerHTML;
+            //alert(CellData);
+            var NewCellData = prompt("Enter new cell data");
+            //alert(NewCellData);
+            document.getElementById("getTableData").rows[RowNumber].cells[ColunmNumber].innerHTML = NewCellData ;
+          }
+        }
+        else {
+          document.write('Please Try Again !');
+      }
+    }
+    </script>
+  </head>
+  <body>
+    <table id="getTableData">
+      <tr>
+        <th>Column1</th>
+        <th>Column2</th>
+      </tr>
+      <tr>
+      	<td>Cell1</td>
+      	<td>Cell2</td>
+      </tr>
+      <tr>
+      	<td>Cell3</td>
+      	<td>Cell4</td>
+      </tr>
+      <tr>
+      	<td>Cell5</td>
+      	<td>Cell6</td>
+      </tr>
+    </table>
+    <input type="button" id="addRowToTable" value="Add Row !" onclick="return AddRowToTable()"/>
+    <input type="button" id="userRequest" value="Edit Cell" onclick="return EditTableCell()">
+  </body>
+</html>
